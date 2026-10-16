@@ -16,6 +16,33 @@ from datetime import datetime, timezone
 
 from pymongo import MongoClient
 
+
+def _carregar_dotenv():
+    """
+    Le o .env local se existir, SEM sobrescrever variaveis ja definidas.
+
+    No Railway as variaveis vem do painel de environment, que tem prioridade.
+    Aqui a gente so preenche o que faltar, para rodar local sem exportar tudo.
+    """
+    caminho = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    if not os.path.exists(caminho):
+        return
+    try:
+        with open(caminho, "r", encoding="utf-8") as f:
+            for linha in f:
+                linha = linha.strip()
+                if not linha or linha.startswith("#") or "=" not in linha:
+                    continue
+                chave, _, valor = linha.partition("=")
+                chave = chave.strip()
+                valor = valor.strip().strip('"').strip("'")
+                os.environ.setdefault(chave, valor)
+    except OSError:
+        pass
+
+
+_carregar_dotenv()
+
 # ---------------------------------------------------------------- variaveis
 
 MONGO_URI = os.getenv("MONGO_URI", "")

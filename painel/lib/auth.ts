@@ -32,11 +32,14 @@ export function login(req: NextRequest, senha: string) {
   if (senha !== (process.env.PANEL_PASSWORD || "")) {
     return NextResponse.json({ erro: "Senha incorreta" }, { status: 401 });
   }
+  // secure:true so funciona em HTTPS. Em desenvolvimento local (http://localhost)
+  // o navegador recusaria o cookie e ninguem entraria no painel.
+  const ehProducao = process.env.NODE_ENV === "production";
   const resp = NextResponse.json({ ok: true });
   resp.cookies.set(COOKIE, TOKEN, {
     httpOnly: true,
     sameSite: "lax",
-    secure: true,
+    secure: ehProducao,
     maxAge: 60 * 60 * 24 * 30,
     path: "/",
   });
