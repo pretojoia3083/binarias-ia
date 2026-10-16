@@ -1,0 +1,10 @@
+# Dependencias do WORKER (roda no Railway)
+# exnovaapi vem do GitHub do fork usado antes
+exnovaapi @ git+https://github.com/CassDs/exnovaapi.git
+websocket-client
+requests
+pymongo
+openai
+feedparser
+flask
+gunicorn

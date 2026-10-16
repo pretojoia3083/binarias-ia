@@ -1,0 +1,21 @@
+{
+  "name": "Binárias com IA",
+  "short_name": "Binárias IA",
+  "description": "Painel de operações binárias com análise por IA",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0D111A",
+  "theme_color": "#0D111A",
+  "categories": ["finance", "productivity"],
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Oportunidades", "url": "/?aba=oportunidades" },
+    { "name": "Conversar com IA", "url": "/?aba=chat" }
+  ]
+}

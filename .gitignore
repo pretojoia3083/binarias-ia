@@ -1,0 +1,32 @@
+# segredos — nunca commitar
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# node / next
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# logs e temporarios
+*.log
+servidor.log
+.DS_Store
+Thumbs.db
+
+# dados locais de teste
+*.db
+t_*.db
